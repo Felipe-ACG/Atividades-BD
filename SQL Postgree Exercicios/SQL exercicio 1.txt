@@ -1,0 +1,39 @@
+// Exercicio 1
+
+select * from tbfaculdade;
+
+// Exercicio 2
+
+select * from tbfaculdade order by municipio desc;
+
+// Exercicio 3
+
+select * from tbfaculdade where municipio ='Jacareí';
+
+// Exercicio 4
+
+select * from tbfaculdade where numero is null;
+
+// Exercicio 5
+
+select * from tbfaculdade where municipio ilike 'f%';
+
+// Exercicio 6
+
+select * from tbfaculdade where bairro ilike '%vila%';
+
+// Exercicio 7
+
+select * from tbfaculdade where cep like '%000';
+
+// Exercicio 8
+
+select * from tbfaculdade where cep like '_5%';
+
+// Exercicio 9
+
+select * from tbfaculdade where cep like '_5%2_';
+
+// Exercicio 10
+
+select * from tbfaculdade where numero ilike '__';
