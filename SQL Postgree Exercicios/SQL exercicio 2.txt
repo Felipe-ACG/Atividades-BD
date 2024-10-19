@@ -1,3 +1,5 @@
+Aula 7
+
 // Exercicio 1
 
 select unidade as "Fatec", count(*) as "Quantidade"
