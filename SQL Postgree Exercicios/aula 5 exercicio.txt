@@ -1,0 +1,19 @@
+CREATE TABLE Produtos (
+	id serial PRIMARY KEY,
+	nome varchar(100),
+	preco int,
+	categoria varchar(100)
+)
+
+INSERT INTO Produtos (nome,preco,categoria)VALUES
+	('Notebook',4500,'Eletrônicos'),
+	('Smartphone',2500,'Eletrônicos'),
+	('Cadeira Gamer',850,'Móveis'),
+	('Geladeira',3200,'Eletrodoméstico'),
+	('Fone de Ouvido',200,'Acessórios');
+
+Select * from Produtos
+
+Select*from Produtos where categoria = 'Eletrônicos'
+
+Select * from Produtos order by preco desc
