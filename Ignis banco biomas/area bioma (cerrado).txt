@@ -1,18 +1,64 @@
 create extension if not exists postgis;
 
-create table bioma (
-    id numeric primary key,
-    nome varchar(100),
-    area geometry(polygon, 4326) -- tipo da geometria - polígono
-    
+CREATE TABLE Estados (
+    id_estado INT PRIMARY KEY,
+    estado VARCHAR(100)
+);
+INSERT INTO Estados (id_estado, estado) VALUES
+(11, 'Rondônia'),
+(12, 'Acre'),
+(13, 'Amazonas'),
+(14, 'Roraima'),
+(15, 'Pará'),
+(16, 'Amapá'),
+(17, 'Tocantins'),
+(21, 'Maranhão'),
+(22, 'Piauí'),
+(23, 'Ceará'),
+(24, 'Rio Grande do Norte'),
+(25, 'Paraíba'),
+(26, 'Pernambuco'),
+(27, 'Alagoas'),
+(28, 'Sergipe'),
+(29, 'Bahia'),
+(31, 'Minas Gerais'),
+(32, 'Espírito Santo'),
+(33, 'Rio de Janeiro'),
+(35, 'São Paulo'),
+(41, 'Paraná'),
+(42, 'Santa Catarina'),
+(43, 'Rio Grande do Sul'),
+(50, 'Mato Grosso do Sul'),
+(51, 'Mato Grosso'),
+(52, 'Goiás'),
+(53, 'Distrito Federal');
+select *from Estados
+
+CREATE TABLE Bioma (
+    id INTEGER PRIMARY KEY,
+    bioma VARCHAR(100)
+);
+INSERT INTO Bioma (id, bioma) VALUES
+(1, 'Amazônia'),
+(2, 'Caatinga'),
+(3, 'Cerrado'),
+(4, 'Mata Atlântica'),
+(5, 'Pampa'),
+(6, 'Pantanal');
+select *from Bioma
+
+CREATE TABLE Focos_Queimada (
+    id SERIAL PRIMARY KEY,
+    estado_id INT REFERENCES Estados(id_estado),
+    bioma_id INT REFERENCES Bioma(id),
+	data Date,
+	Focos DECIMAL(3,2),
+    geom GEOMETRY(Polygon, 4326), 
+	FOREIGN KEY (estado_id) REFERENCES Estados(id_estado),
+	FOREIGN KEY (bioma_id) REFERENCES Bioma(id)
 );
 
-INSERT INTO bioma (id, nome, area) VALUES
--- Bioma Cerrado
-(4, 'Cerrado', ST_SetSRID(ST_GeomFromText('POLYGON((
-    -23.9 -55.3, -20.2 -51.0, -19.8 -47.5, -21.2 -45.6, -19.9 -43.2, 
-    -18.9 -43.64, -17.6 -42.3, -13.0 -42.9, -16.7 -43.7, -9.0 -43.9, 
-    -3.0 -41.9, -2.5 -43.3, -13.4 -52.9, -12.5 -56.2, -16.3 -57.5,
-	-16.8 -55.2, -20.2 -55.7, -20.2 -55.7, -23.9 -55.3))'), 4326))
+INSERT INTO Focos_Queimada (data, geom, estado_id, bioma_id, Focos) VALUES
+('2024-12-20', ST_SetSRID(ST_MakePolygon(ST_GeomFromText('LINESTRING(4.271670 -60.700000)')), 4326), 53, 3, 0.92); 
 
-select * from bioma
+select * from Focos_Queimada
