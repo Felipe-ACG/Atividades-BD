@@ -2,36 +2,38 @@ create extension if not exists postgis;
 
 CREATE TABLE Estados (
     id_estado INT PRIMARY KEY,
-    estado VARCHAR(100)
+    estado VARCHAR(100),
+	geometria GEOMETRY(POINT, 4326)
 );
-INSERT INTO Estados (id_estado, estado) VALUES
-(11, 'Rondônia'),
-(12, 'Acre'),
-(13, 'Amazonas'),
-(14, 'Roraima'),
-(15, 'Pará'),
-(16, 'Amapá'),
-(17, 'Tocantins'),
-(21, 'Maranhão'),
-(22, 'Piauí'),
-(23, 'Ceará'),
-(24, 'Rio Grande do Norte'),
-(25, 'Paraíba'),
-(26, 'Pernambuco'),
-(27, 'Alagoas'),
-(28, 'Sergipe'),
-(29, 'Bahia'),
-(31, 'Minas Gerais'),
-(32, 'Espírito Santo'),
-(33, 'Rio de Janeiro'),
-(35, 'São Paulo'),
-(41, 'Paraná'),
-(42, 'Santa Catarina'),
-(43, 'Rio Grande do Sul'),
-(50, 'Mato Grosso do Sul'),
-(51, 'Mato Grosso'),
-(52, 'Goiás'),
-(53, 'Distrito Federal');
+INSERT INTO Estados (id_estado, estado, geometria) VALUES
+--(11, 'Rondônia', ST_SetSRID(ST_MakePoint(-66.618120, -9.756370),4326));
+--(12, 'Acre', ST_SetSRID(ST_MakePoint(-67.696380, -9.486050),4326));
+--(13, 'Amazonas', ST_SetSRID(ST_MakePoint(-64.721050, -3.354590),4326));
+--(14, 'Roraima', ST_SetSRID(ST_MakePoint(-60.699470, 4.271670),4326));
+--(51, 'Mato Grosso', ST_SetSRID(ST_MakePoint(-51.956500, -12.559770),4326));
+--(15, 'Pará', ST_SetSRID(ST_MakePoint( -53.780080, -2.267540),4326));
+--(21, 'Maranhão', ST_SetSRID(ST_MakePoint(-45.925380, -1.658920),4326));
+--(17, 'Tocantins', ST_SetSRID(ST_MakePoint(-48.394280, -6.495310),4326)); 
+(16, 'Amapá', ST_SetSRID(ST_MakePoint( -50.749020, 1.372300),4326));
+(22, 'Piauí'ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326)); ),
+(23, 'Ceará'ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(24, 'Rio Grande do Norte' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(25, 'Paraíba' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(26, 'Pernambuco' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(27, 'Alagoas' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(28, 'Sergipe' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(29, 'Bahia' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(31, 'Minas Gerais' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(32, 'Espírito Santo' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(33, 'Rio de Janeiro' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(35, 'São Paulo' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(41, 'Paraná' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(42, 'Santa Catarina' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(43, 'Rio Grande do Sul' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(50, 'Mato Grosso do Sul' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(52, 'Goiás' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
+(53, 'Distrito Federal' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326)););
+
 select *from Estados
 
 CREATE TABLE Bioma (
@@ -47,6 +49,11 @@ INSERT INTO Bioma (id, bioma) VALUES
 (6, 'Pantanal');
 select *from Bioma
 
+UPDATE Estados
+SET geometria = ST_SetSRID(ST_MakePoint(-63.961120, -12.060110), 4326)
+WHERE id_estado = 11;
+
+
 CREATE TABLE Focos_Queimada (
     id SERIAL PRIMARY KEY,
     estado_id INT REFERENCES Estados(id_estado),
@@ -59,6 +66,5 @@ CREATE TABLE Focos_Queimada (
 );
 
 INSERT INTO Focos_Queimada (data, geom, estado_id, bioma_id, Focos) VALUES
-('2024-12-20', ST_SetSRID(ST_MakePolygon(ST_GeomFromText('LINESTRING(4.271670 -60.700000)')), 4326), 53, 3, 0.92); 
 
 select * from Focos_Queimada
