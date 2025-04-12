@@ -6,53 +6,69 @@ CREATE TABLE Estados (
 	geometria GEOMETRY(POINT, 4326)
 );
 INSERT INTO Estados (id_estado, estado, geometria) VALUES
---(11, 'Rondônia', ST_SetSRID(ST_MakePoint(-66.618120, -9.756370),4326));
---(12, 'Acre', ST_SetSRID(ST_MakePoint(-67.696380, -9.486050),4326));
---(13, 'Amazonas', ST_SetSRID(ST_MakePoint(-64.721050, -3.354590),4326));
---(14, 'Roraima', ST_SetSRID(ST_MakePoint(-60.699470, 4.271670),4326));
---(51, 'Mato Grosso', ST_SetSRID(ST_MakePoint(-51.956500, -12.559770),4326));
---(15, 'Pará', ST_SetSRID(ST_MakePoint( -53.780080, -2.267540),4326));
---(21, 'Maranhão', ST_SetSRID(ST_MakePoint(-45.925380, -1.658920),4326));
---(17, 'Tocantins', ST_SetSRID(ST_MakePoint(-48.394280, -6.495310),4326)); 
-(16, 'Amapá', ST_SetSRID(ST_MakePoint( -50.749020, 1.372300),4326));
-(22, 'Piauí'ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326)); ),
-(23, 'Ceará'ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(24, 'Rio Grande do Norte' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(25, 'Paraíba' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(26, 'Pernambuco' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(27, 'Alagoas' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(28, 'Sergipe' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(29, 'Bahia' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(31, 'Minas Gerais' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(32, 'Espírito Santo' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(33, 'Rio de Janeiro' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(35, 'São Paulo' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(41, 'Paraná' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(42, 'Santa Catarina' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(43, 'Rio Grande do Sul' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(50, 'Mato Grosso do Sul' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(52, 'Goiás' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326));),
-(53, 'Distrito Federal' ST_SetSRID(ST_MakePoint(4.271670 -60.699470),4326)););
+(11, 'Rondônia', ST_SetSRID(ST_MakePoint(-66.618120, -9.756370),4326)),
+(12, 'Acre', ST_SetSRID(ST_MakePoint(-67.696380, -9.486050),4326)),
+(13, 'Amazonas', ST_SetSRID(ST_MakePoint(-64.721050, -3.354590),4326)),
+(14, 'Roraima', ST_SetSRID(ST_MakePoint(-60.699470, 4.271670),4326)),
+(51, 'Mato Grosso', ST_SetSRID(ST_MakePoint(-51.956500, -12.559770),4326)),
+(15, 'Pará', ST_SetSRID(ST_MakePoint(-53.780080, -2.267540),4326)),
+(21, 'Maranhão', ST_SetSRID(ST_MakePoint(-45.925380, -1.658920),4326)),
+(17, 'Tocantins', ST_SetSRID(ST_MakePoint(-48.394280, -6.495310),4326)), 
+(16, 'Amapá', ST_SetSRID(ST_MakePoint(-50.749020, 1.372300),4326)),
+(27, 'Alagoas', ST_SetSRID(ST_MakePoint(-36.839890, -9.412910),4326)),
+(29, 'Bahia', ST_SetSRID(ST_MakePoint(-40.492510, -11.619500),4326)),
+(23, 'Ceará', ST_SetSRID(ST_MakePoint(-40.136550, -3.511780),4326)),
+(31, 'Minas Gerais', ST_SetSRID(ST_MakePoint(-43.226320, -14.706750),4326)),
+(25, 'Paraíba', ST_SetSRID(ST_MakePoint(-37.681350, -6.381180),4326)),
+(26, 'Pernambuco', ST_SetSRID(ST_MakePoint(-36.937020, -9.147340),4326)),
+(22, 'Piauí', ST_SetSRID(ST_MakePoint(-42.438330, -4.764210),4326)),
+(24, 'Rio Grande do Norte', ST_SetSRID(ST_MakePoint(-36.430690, -5.476990),4326)),
+(28, 'Sergipe', ST_SetSRID(ST_MakePoint(-37.814010, -10.885150),4326)),
+(35, 'São Paulo', ST_SetSRID(ST_MakePoint(-46.963160, -21.892470),4326)),
+(41, 'Paraná', ST_SetSRID(ST_MakePoint(-50.274450, -24.590870),4326)),
+(50, 'Mato Grosso do Sul', ST_SetSRID(ST_MakePoint(-52.962580, -19.996150),4326)),
+(53, 'Distrito Federal', ST_SetSRID(ST_MakePoint(-48.077760,-15.813880),4326)),
+(52, 'Goiás', ST_SetSRID(ST_MakePoint(-46.226720, -13.598120),4326)),
+(50, 'Mato Grosso do Sul', ST_SetSRID(ST_MakePoint(-53.450910,-22.074660),4326)),
+(43, 'Rio Grande do Sul', ST_SetSRID(ST_MakePoint(-53.849940, -29.628130),4326)),
+(32, 'Espírito Santo', ST_SetSRID(ST_MakePoint(-39.789090, -18.493410),4326)),
+(33, 'Rio de Janeiro', ST_SetSRID(ST_MakePoint(-42.119440, -22.782060),4326)),
+(42, 'Santa Catarina', ST_SetSRID(ST_MakePoint(-48.987700, -26.028340),4326));
 
 select *from Estados
 
 CREATE TABLE Bioma (
-    id INTEGER PRIMARY KEY,
-    bioma VARCHAR(100)
+    id_bioma INTEGER PRIMARY KEY,
+    bioma VARCHAR(100),
+	poligono GEOMETRY(POLYGON, 4326)
 );
-INSERT INTO Bioma (id, bioma) VALUES
-(1, 'Amazônia'),
-(2, 'Caatinga'),
-(3, 'Cerrado'),
-(4, 'Mata Atlântica'),
-(5, 'Pampa'),
-(6, 'Pantanal');
+INSERT INTO Bioma (id_bioma, bioma, poligono) VALUES
+(1, 'Amazônia', ST_GeomFromText('POLYGON((-66.618120 -9.756370, 
+-67.696380 -9.486050,-64.721050 -3.354590,-60.699470 4.271670,
+-53.780080 -2.267540,-50.749020 1.372300,-45.925380 -1.658920,
+-48.394280 -6.495310,-51.956500 -12.559770,-66.618120 -9.756370))', 4326)),
+(2, 'Caatinga', ST_GeomFromText('POLYGON((-42.438330 -4.764210, 
+-40.136550 -3.511780, -36.430690 -5.476990, -37.681350 -6.381180,
+-36.937020 -9.147340, -36.839890 -9.412910, -37.814010 -10.885150,
+-40.492510 -11.619500, -42.438330 -4.764210))', 4326)),
+(3, 'Cerrado', ST_GeomFromText('POLYGON((-45.925380 -1.658920,
+-48.394280 -6.495310, -48.077760 -15.813880, -46.226720 -13.598120,
+-51.956500 -12.559770, -52.962580 -19.996150, -46.963160 -21.892470,
+-43.226320 -14.706750, -40.492510 -11.619500, -42.438330 -4.764210,
+-45.925380 -1.658920))', 4326)),
+(4, 'Mata Atlântica', ST_GeomFromText('POLYGON((-36.937020 -9.147340,
+-36.839890 -9.412910, -37.814010 -10.885150, -40.492510 -11.619500,
+-43.226320 -14.706750, -46.963160 -21.892470, -50.274450 -24.590870,
+-48.987700 -26.028340, -53.849940 -29.628130, -48.916280 -23.985170,
+-42.119440 -22.782060, -39.789090 -18.493410, -36.937020 -9.147340))', 4326)),
+(5, 'Pampa',ST_GeomFromText('POLYGON((-53.849940 -29.628130,
+-53.451790 -28.877100, -51.177370 -29.815560, -50.976640 -30.273010,
+-53.849940 -29.628130))', 4326)),
+(6, 'Pantanal',ST_GeomFromText('POLYGON((-59.001840 -16.252650,
+-58.920170 -16.009470, -56.430740 -19.683050, -56.027550 -20.172120,
+-59.001840 -16.252650))', 4326));
+
 select *from Bioma
-
-UPDATE Estados
-SET geometria = ST_SetSRID(ST_MakePoint(-63.961120, -12.060110), 4326)
-WHERE id_estado = 11;
-
 
 CREATE TABLE Focos_Queimada (
     id SERIAL PRIMARY KEY,
