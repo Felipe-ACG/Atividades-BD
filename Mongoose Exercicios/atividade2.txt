@@ -1,0 +1,56 @@
+// Questão 1 – Consulta com Operadores Lógicos
+use rede_games;
+
+db.produtos.find({
+  $and: [
+    { categoria: "Periféricos" },
+    { preco: { $gt: 300 } },
+    { estoque: { $lt: 10 } }
+  ]
+});
+
+
+// Questão 2 – Inserção com Operadores de Atualização
+use rede_games;
+
+// Adiciona o campo desconto = 0 em todos os produtos
+db.produtos.updateMany({}, { $set: { desconto: 0 } });
+
+// Atualiza o Monitor UltraWide para desconto = 10
+db.produtos.updateOne(
+  { nome: "Monitor UltraWide" },
+  { $set: { desconto: 10 } }
+);
+
+
+// Questão 3 – Incremento de Valores
+use rede_games;
+
+db.produtos.updateMany(
+  { categoria: "Áudio" },
+  { $inc: { estoque: 3 } }
+);
+
+
+// Questão 4 – Atualização e Substituição
+use rede_games;
+
+db.produtos.replaceOne(
+  { nome: "Console Zeta" },
+  { nome: "Console Zeta", categoria: "Consoles", preco: 3500, estoque: 3, garantia: "2 anos" }
+);
+
+
+// Questão 5 – Remoção Condicional
+use rede_games;
+
+db.produtos.deleteMany({ estoque: { $lt: 5 } });
+
+
+// Questão 6 – Agregação e Contagem
+use rede_games;
+
+db.produtos.aggregate([
+  { $group: { _id: "$categoria", total_produtos: { $sum: 1 } } }
+]);
+
